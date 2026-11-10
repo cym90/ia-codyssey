@@ -1,3 +1,4 @@
+
 # 1. 작업 폴더로 이동 후 Git 초기화
 cd ~/codyssey/workspace
 git init
