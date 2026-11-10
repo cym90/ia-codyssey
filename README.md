@@ -6,7 +6,7 @@ git init
 git branch -M main
 
 # 3. 원격 저장소 연결 (본인의 GitHub Repository URL 입력)
-git remote add origin https://github.com/본인계정ID/저장소이름.git
+git remote add origin https://github.com/cym90/ia-codyssey/edit/main/README.md.git
 
 # 4. 파일 스테이징 및 커밋
 git add .
