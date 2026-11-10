@@ -1,4 +1,19 @@
+# 1. 작업 폴더로 이동 후 Git 초기화
+cd ~/codyssey/workspace
+git init
 
+# 2. 기본 브랜치 이름을 main으로 설정
+git branch -M main
+
+# 3. 원격 저장소 연결 (본인의 GitHub Repository URL 입력)
+git remote add origin https://github.com/본인계정ID/저장소이름.git
+
+# 4. 파일 스테이징 및 커밋
+git add .
+git commit -m "feat: complete dev workstation setup mission"
+
+# 5. GitHub에 푸시
+git push -u origin main
     
 ## 1. 개발 환경
 
