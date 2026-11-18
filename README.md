@@ -242,3 +242,58 @@ init.defaultbranch=main
 - **절대/상대 경로**: CLI 이동 시 `./`와 `../`, 루트부터 시작하는 절대 경로의 차이를 명확히 이해함.
 - **포트 매핑의 필요성**: 컨테이너는 격리된 네트워크 환경을 가지므로, 호스트 OS와 컨테이너 내부 포트를 연결(`-p`)해야만 외부 브라우저에서 접근할 수 있음을 체득함.
 - **볼륨의 중요성**: 컨테이너가 삭제되어도 데이터가 유실되지 않도록 Docker Volume을 분리하여 관리하는 구조적 설계의 이유를 알게 됨.
+
+# 🚀 개발 워크스테이션 구축 및 Docker/Git 실습 과제
+
+> **프로젝트 개요:** 터미널, Docker, Git/GitHub를 활용해 재현 가능한 개발 환경을 구축하고, 컨테이너 빌드·포트 매핑·볼륨 영속성 검증 과정을 정리한 기술 문서입니다.
+
+---
+
+## 1. 실행 환경 (Environment)
+- **OS:** macOS Sonoma / Ubuntu 22.04 (본인 환경 기입)
+- **Shell:** zsh / bash
+- **Docker Version:** 26.x (또는 OrbStack 내장 Docker)
+- **Git Version:** 2.x
+
+---
+
+## 2. 수행 항목 체크리스트
+- [x] 터미널 기본 조작 및 폴더 구성
+- [x] 권한 변경 실습 (`rwx`, `755`, `644`)
+- [x] Docker 설치 및 데몬 점검 (`docker --version`, `docker info`)
+- [x] Docker 기본 운영 명령 (`images`, `ps`, `logs`, `stats`)
+- [x] 컨테이너 실행 실습 (`hello-world`, `ubuntu` 진입)
+- [x] Dockerfile 기반 커스텀 이미지 제작 및 빌드/실행
+- [x] 포트 매핑 및 브라우저/curl 접속 확인
+- [x] 바인드 마운트 반영 테스트
+- [x] Docker 볼륨 영속성 검증
+- [x] Git 설정 및 GitHub/VSCode 연동
+
+---
+
+## 3. 상세 수행 내용 및 로그
+
+### ① 터미널 조작 및 권한 실습
+* **디렉토리 생성 및 이동:**
+  ```bash
+  $mkdir -p ~/codyssey/practice && cd ~/codyssey/practice$ pwd
+  /Users/username/codyssey/practice
+
+  $ touch test.txt
+$ chmod 644 test.txt
+$ ls -l test.txt
+-rw-r--r--  1 user  staff  0 Nov 19 09:00 test.txt
+
+
+$ docker --version
+Docker version 26.1.0, build 3c44249
+
+$ docker info | grep "Server Version"
+ Server Version: 26.1.0
+
+ $ curl http://localhost:8080
+<!DOCTYPE html>
+<html>
+<head><title>My Custom Web Server</title></head>
+<body><h1>Hello, Dev Workspace!</h1></body>
+</html>
